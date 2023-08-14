@@ -9,4 +9,6 @@ public interface CustomerBO {
 
     List<CustomerDTO> getCustomers() throws Exception;
 
+    CustomerDTO saveCustomer(CustomerDTO customerDTO) throws Exception;
+
 }

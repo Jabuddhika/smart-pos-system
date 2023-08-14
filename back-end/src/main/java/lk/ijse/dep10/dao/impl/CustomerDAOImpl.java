@@ -40,4 +40,20 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         return customerList;
     }
+
+    @Override
+    public Customer saveCustomer(Customer customer) throws Exception {
+        Connection connection = pool.getConnection();
+        PreparedStatement pst = connection.prepareStatement("INSERT INTO dep10_pos.customer(name, address, contact) VALUES (?,?,?)",Statement.RETURN_GENERATED_KEYS);
+        pst.setString(1, customer.getName());
+        pst.setString(2, customer.getAddress());
+        pst.setString(3,customer.getContact());
+        pst.executeUpdate();
+        ResultSet rst=pst.getGeneratedKeys();
+        rst.next();
+        int id = rst.getInt(1);
+
+        Customer customer1=new Customer(id,customer.getName(), customer.getAddress(), customer.getContact());
+        return customer1;
+    }
 }

@@ -24,7 +24,8 @@ public class CustomerController {
  }
 
  @PostMapping
- public CustomerDTO saveCustomer(@RequestBody CustomerDTO customer) {
+ public CustomerDTO saveCustomer(@RequestBody CustomerDTO customer) throws Exception {
+   return customerBO.saveCustomer(customer);
 
  }
 

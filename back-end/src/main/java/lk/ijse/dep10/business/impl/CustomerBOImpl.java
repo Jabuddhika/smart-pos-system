@@ -27,4 +27,9 @@ public class CustomerBOImpl implements CustomerBO {
     public List<CustomerDTO> getCustomers() throws Exception {
       return  customerDAO.getCustomers().stream().map(transformer::fromEntity).collect(Collectors.toList());
     }
+
+    @Override
+    public CustomerDTO saveCustomer(CustomerDTO customerDTO) throws Exception {
+       return transformer.fromEntity(customerDAO.saveCustomer(transformer.toEntity(customerDTO)));
+    }
 }

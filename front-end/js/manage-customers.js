@@ -16,8 +16,9 @@ function loadCustomers(){
         const xhr=new XMLHttpRequest();
 
         xhr.addEventListener('readystatechange',()=>{
-                if(xhr.readyState==4){
-                        if(xhr.status==200){
+                if(xhr.readyState===4){
+                        if(xhr.status===200){
+                                tableBElm.empty();
                             let customerList  = JSON.parse(xhr.responseText);
                             customerList.forEach(elm=>{
                                     tableBElm.append(`<tr>
@@ -66,16 +67,17 @@ btnElm.on('click',()=>{
         const xhr=new XMLHttpRequest();
 
         xhr.addEventListener('readystatechange',()=>{
-               if(xhr.readyState==4){
-                       if(xhr.status==200){
+               if(xhr.readyState===4){
+                       if(xhr.status===200){
                                console.log(xhr.responseText);
+                               loadCustomers();
                        }
                }
-        })
+        });
 
-        xhr.open('post',API_BASE_URL+'/v1/api/customers',true);
+        xhr.open('POST',API_BASE_URL+'/v1/api/customers',true);
 
-        xhr.setRequestHeader('content-type','application/json');
+        xhr.setRequestHeader('Content-Type','application/json');
 
         xhr.send(JSON.stringify(customer));
 
@@ -86,7 +88,6 @@ function isValid(){
         const name=nameElm.val().trim();
         const address=addressElm.val().trim();
         const contact=contactElm.val().trim();
-
         let valid=true;
         [nameElm,addressElm,contactElm].forEach(elm=>{
                 elm.removeClass(['is-invalid','animate__shakeX']);
@@ -113,6 +114,8 @@ function isValid(){
                 valid=inValidate(nameElm,'Invalid name');
 
         }
+
+        return valid;
 
 }
 
