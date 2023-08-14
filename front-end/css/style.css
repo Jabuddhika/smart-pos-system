@@ -4,14 +4,18 @@
 
 body{
     height: 100vh;
+
+
 }
 
 nav{
     height: 100%;
     padding: 10px;
+    width: 110px;
 }
 
 nav>div{
     height: 100%;
     margin-left: 20px;
+
 }
