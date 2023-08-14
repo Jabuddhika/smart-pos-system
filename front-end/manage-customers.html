@@ -7,11 +7,13 @@
     <title>POS System - Home</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/manage-customer.css">
     <script defer src="node_modules/jquery/dist/jquery.min.js"></script>
     <script defer src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script defer src="js/manage-customers.js"></script>
 
 
 </head>
@@ -86,33 +88,18 @@
     </section>
 
     <section>
-        <table class="table table-hover border">
+        <table id="tbl-customers" class="table table-hover border table-bordered">
             <thead>
             <tr>
                 <th class="fw-bold" scope="col">ID</th>
                 <th class="fw-bold" scope="col">Name</th>
                 <th class="fw-bold" scope="col">Address</th>
                 <th class="fw-bold" scope="col">Contact</th>
+                <th class="fw-bold" scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+
             </tbody>
         </table>
 
@@ -127,29 +114,36 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
                     <div class="d-flex flex-column gap-2 text-center">
                         <label for="">Customer Name</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control text-center" placeholder="Buddhika Sampath" aria-label="Username" aria-describedby="basic-addon1">
+                            <input id="txt-name" type="text" class="form-control text-center" placeholder="Buddhika Sampath" aria-label="Username" aria-describedby="basic-addon1">
+                            <div class="invalid-feedback">
+                                Please provide a valid city.
+                            </div>
                         </div>
                     </div>
                     <div class="d-flex flex-column gap-2 text-center">
                         <label for="">Customer Address</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control text-center" placeholder="263/6,Bogahen,Walasmulla" aria-label="Username" aria-describedby="basic-addon1">
+                            <input id="txt-address" type="text" class="form-control text-center" placeholder="263/6,Bogahen,Walasmulla" aria-label="Username" aria-describedby="basic-addon1">
+                            <div class="invalid-feedback">
+                                Please provide a valid city.
+                            </div>
                         </div>
                     </div>
                     <div class="d-flex flex-column gap-2 text-center">
                         <label for="">Customer Contact</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control text-center" placeholder="071-3440576" aria-label="Username" aria-describedby="basic-addon1">
+                            <input id="txt-contact" type="text" class="form-control text-center" placeholder="071-3440576" aria-label="Username" aria-describedby="basic-addon1">
+                            <div class="invalid-feedback">
+                                Please provide a valid city.
+                            </div>
                         </div>
                     </div>
-                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save Customer</button>
+                    <button id="btn-add" type="button" class="btn btn-primary">Save Customer</button>
                 </div>
             </div>
         </div>

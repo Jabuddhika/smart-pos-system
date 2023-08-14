@@ -3,10 +3,7 @@ package lk.ijse.dep10.api;
 
 import lk.ijse.dep10.business.CustomerBO;
 import lk.ijse.dep10.dto.CustomerDTO;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,13 @@ public class CustomerController {
  public List<CustomerDTO> getCustomer() throws Exception {
    return customerBO.getCustomers();
  }
+
+ @PostMapping
+ public CustomerDTO saveCustomer(@RequestBody CustomerDTO customer) {
+
+ }
+
+
 
 
 
